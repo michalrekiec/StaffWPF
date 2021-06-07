@@ -1,0 +1,32 @@
+﻿<mah:MetroWindow x:Class="StaffWpf.Views.DismissRestoreView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:StaffWpf"
+        mc:Ignorable="d"
+        Name="DismissOrRestoreWindow"
+        WindowStartupLocation="CenterScreen"
+        Title="Zwalnianie / przywracanie pracownika" Height="300" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150" />
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="{Binding InformationTextBlock}"
+               TextWrapping="Wrap"
+               Margin="20"
+               FontSize="20"/>
+        <DatePicker SelectedDate="{Binding Employee.DismissalOrRestoreDate}" Grid.Row="1" Margin="10"/>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Command="{Binding CloseDRCommand}"
+                    CommandParameter="{Binding ElementName=DismissOrRestoreWindow}"
+                    Content="Anuluj" Width="100" Height="30" Margin="5" />
+            <Button Command="{Binding ConfirmDRCommand}"
+                    CommandParameter="{Binding ElementName=DismissOrRestoreWindow}"
+                    Content="Zatwierdź" Width="100" Height="30" Margin="5" />
+        </StackPanel>
+    </Grid>
+</mah:MetroWindow>
